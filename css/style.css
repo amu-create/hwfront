@@ -47,7 +47,7 @@ body {
   position: absolute;
   top: 100%;
   left: 50%;
-  width: 100vw; /* 전체 뷰포트 너비 */
+  width: 120vw; /* 전체 뷰포트 너비 */
   background: white;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   display: none;
