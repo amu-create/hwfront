@@ -42,7 +42,7 @@ body {
   background-color: #333;
 }
 
-/* 메가 드롭다운 스타일 */
+/* 메가 드롭다운 스타일 - 명시적인 스타일 지정 */
 .mega-dropdown {
   position: absolute;
   top: 100%;
@@ -57,59 +57,63 @@ body {
 }
 
 .menu-item-top:hover .mega-dropdown {
-  display: block;
+  display: block !important; /* !important 추가 */
 }
 
 .mega-content {
-  display: flex;
-  flex-direction: row; /* 명시적으로 가로 방향 설정 */
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1200px; /* 컨텐츠 최대 너비 */
-  margin: 0 auto;
-  padding: 0 20px;
+  display: table !important; /* 테이블 레이아웃 사용 */
+  table-layout: fixed !important; /* 고정 너비 배분 */
+  width: 100% !important;
+  max-width: 1200px !important; /* 컨텐츠 최대 너비 */
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+  border-collapse: separate !important; /* 셀 간격 유지 */
+  border-spacing: 15px 0 !important; /* 좌우 간격 15px */
 }
 
 .mega-column {
-  flex: 1;
-  padding: 0 15px;
-  min-width: 200px; /* 최소 너비 설정 */
-  max-width: 25%; /* 최대 너비 제한 (4개 컬럼) */
+  display: table-cell !important; /* 테이블 셀로 표시 */
+  width: 25% !important; /* 명시적 너비 설정 */
+  vertical-align: top !important; /* 상단 정렬 */
+  padding: 0 !important;
 }
 
 .mega-column h3 {
-  color: #333;
-  margin-bottom: 15px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid #4CAF50;
-  font-size: 16px;
-  white-space: nowrap; /* 제목 줄바꿈 방지 */
+  color: #333 !important;
+  margin-bottom: 15px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 2px solid #4CAF50 !important;
+  font-size: 16px !important;
+  white-space: nowrap !important; /* 제목 줄바꿈 방지 */
+  display: block !important;
 }
 
 .mega-column ul {
-  list-style: none;
-  display: block; /* 리스트 블록 표시 */
-  width: 100%; /* 전체 너비 */
+  list-style: none !important;
+  display: block !important; /* 리스트 블록 표시 강제 */
+  width: 100% !important; /* 전체 너비 */
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .mega-column ul li {
-  margin: 8px 0;
-  display: block; /* 각 항목 블록 표시 */
-  width: 100%; /* 전체 너비 */
+  margin: 8px 0 !important;
+  display: block !important; /* 각 항목 블록 표시 강제 */
+  width: 100% !important; /* 전체 너비 */
 }
 
 .mega-column ul li a {
-  color: #555;
-  text-decoration: none;
-  display: block;
-  padding: 4px 0;
-  font-size: 14px;
-  transition: color 0.2s;
-  white-space: nowrap; /* 링크 텍스트 줄바꿈 방지 */
+  color: #555 !important;
+  text-decoration: none !important;
+  display: block !important;
+  padding: 4px 0 !important;
+  font-size: 14px !important;
+  transition: color 0.2s !important;
+  white-space: nowrap !important; /* 링크 텍스트 줄바꿈 방지 */
 }
 
 .mega-column ul li a:hover {
-  color: #4CAF50;
+  color: #4CAF50 !important;
 }
 
 /* 헤더 이미지 - 전체 화면에서 상단 메뉴 아래로 */
@@ -269,13 +273,15 @@ h1 {
 /* 모바일 대응 */
 @media (max-width: 992px) {
   .mega-content {
-    flex-wrap: wrap;
+    display: flex !important; /* 테이블 대신 플렉스 사용 */
+    flex-wrap: wrap !important;
   }
   
   .mega-column {
-    flex: 0 0 50%;
-    max-width: 50%;
-    margin-bottom: 20px;
+    display: block !important; /* 블록으로 표시 */
+    width: 50% !important;
+    float: left !important;
+    margin-bottom: 20px !important;
   }
 }
 
@@ -297,12 +303,14 @@ h1 {
   }
   
   .mega-content {
-    flex-direction: column;
+    display: block !important;
+    padding: 0 !important;
   }
   
   .mega-column {
-    flex: 0 0 100%;
-    max-width: 100%;
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
   }
   
   .header-image {
