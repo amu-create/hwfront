@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
       content.style.display = 'table';
       content.style.tableLayout = 'fixed';
       content.style.width = '100%';
-      content.style.maxWidth = '1200px';
+      content.style.maxWidth = '1560px'; // 최대 너비 30% 증가
       content.style.margin = '0 auto';
     });
     
@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
       column.style.display = 'table-cell';
       column.style.width = '25%';
       column.style.verticalAlign = 'top';
+      column.style.padding = '0 15px';
     });
   }
   
